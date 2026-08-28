@@ -1,1 +1,37 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    long card = get_long("Enter Credit Number: ");
+
+    int digit = 0;
+
+    int counter = 0;
+
+    int total = 0;
+
+    while(card > 0)
+    {
+        counter++;
+
+        digit = card % 10;
+
+        card = card / 10;
+        if (counter % 2 == 0)
+        {
+            digit = digit * 2;
+            digit = (digit % 10) + (digit / 10);
+        }
+           total = total + digit;
+    }
+        if (total % 10 == 0)
+    {
+        printf("Valid\n");
+    }
+    else
+    {
+        printf("Invalid\n");
+    }
+}
 
